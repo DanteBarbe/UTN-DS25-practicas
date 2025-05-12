@@ -1,0 +1,16 @@
+body{
+    background-color: #f88;
+    text-align: center;
+}
+
+a{
+    margin: 1em;
+}
+
+div{
+    background-color: #eee;
+    border: 1px solid #000;
+    border-radius: 1em;
+    margin: 2em auto;
+    width: 15em;
+}
