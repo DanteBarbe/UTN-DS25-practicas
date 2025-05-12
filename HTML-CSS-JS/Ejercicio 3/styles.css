@@ -1,0 +1,50 @@
+table{
+    border-collapse: collapse;
+}
+
+
+
+
+
+
+
+
+/*Borde a todos los elementos de la tabla.*/
+tr, td{ 
+    border: 2px;
+    border-style: solid;
+    width: 10em;
+    height: 5em;
+}
+
+/*Otro color de fondo para la celda de la intersección entre la segunda fila y la tercer
+columna.*/
+.segunda_fila .tercera_columna{
+    background-color: #fc8;
+}
+
+/*Otro color de fondo para toda la segunda fila.*/
+.segunda_fila{
+    background-color: #bfb;
+}
+
+/*Otro color de fondo para los elementos de la tercer columna.*/
+.tercera_columna{
+    background-color: #fbb;
+}
+
+/*Otro color de fondo en común para para la primer y la última celda.*/
+.primera_fila .primera_columna, .cuarta_fila .cuarta_columna{
+    background-color: #fb3;
+}
+
+/*Otro color de fondo para la celda de la intersección entre la tercer fila y la segunda
+columna.*/
+.tercera_fila .segunda_columna{
+    background-color: #444;
+}
+
+/*Un color de fondo para todos los <td>.*/
+#tabla{
+    background-color: #99f;
+}
