@@ -1,0 +1,155 @@
+header{
+    background-image: url("../images/background_image.png");
+    background-position: 1em 8em;
+    text-align: center;
+}
+
+header h1{
+    margin: 0;
+    padding: 1em;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#logo{
+    float: left;
+    width: 4em;
+    height: 4em;
+    border-radius: 4em;
+    top: 1em;
+    left: 1em;
+    position: relative;
+}
+
+nav{
+    float: left;
+    background-color: #ddd;
+    width: 13vw;
+    margin: 1vw 0;
+}
+
+#menu_list{
+    padding: 0 1em;
+}
+
+#menu_secciones{
+    padding: 0;
+    background-color: #eee;
+    border-radius: 1em;
+}
+
+#menu_secciones li{
+    text-align: center;
+}
+
+#menu_list li{
+    list-style: none;
+    text-transform: uppercase;
+    margin: 1em 0;
+}
+
+section{
+    float: right;
+    justify-content: space-between;
+    background-color: #ddd;
+    width: 83vw;
+    margin: 1vw 0 1vw 0;
+    min-height: 70vh;
+    height: auto;
+}
+
+#contenido_registracion h2 , #contenido_contacto h2{
+    text-align: center;
+    font-size: 2em;
+}
+
+#nya{
+    display: flex;
+    justify-content: space-between;
+}
+
+#campo_form_email input{
+    width: 30em;
+}
+
+.campo_form{
+    margin: 1em 4em;
+    font-size: 1.5em;
+}
+
+button{
+    padding: 1.5em 4em;
+    border-radius: 1em;
+    display: block;
+    margin: 0 auto;
+}
+
+input{
+    min-width: 20em;
+    width: auto;
+    height: 2em;
+}
+
+#contenido_contacto{
+    float: right;
+    justify-content: space-between;
+    background-color: #ddd;
+    width: 83vw;
+    margin: 1vw 0 1vw 0;
+    min-height: 70vh;
+    height: auto;
+}
+
+
+article{
+    background-color: #fff;
+    width: 15em;
+    height: auto;
+    min-height: 15em;
+    text-align: center;
+    margin: 2em 2em;
+}
+
+article p{
+    font-family:cursive;
+    padding: 0 .5em;
+}
+
+article h2, article h4, article h5{
+    margin: .5em;
+}
+
+#contenido_primera_fila{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#contenido_segunda_fila{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+footer{
+    clear: both;
+    background-color: #ddd;
+}
+
+footer ul{
+    display: flex;
+    flex-direction: row;
+    padding: .7em;
+    justify-content: space-between;
+    margin: 0;
+}
+
+footer li a{
+    background-color: #eee;
+    border: 1px solid #eee;
+    border-radius: 1em;
+    padding: .2em;
+}
+footer li{
+    list-style: none;
+}
+
