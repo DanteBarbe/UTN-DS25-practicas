@@ -16,7 +16,7 @@
     <div id="menu">
         <ul id="menu_list">
             <li><h2>Menú</h2></li>
-            <li><a>Inicio</a></li>
+            <li><a href="index.html">Inicio</a></li>
             <ul id="menu_secciones"><h2>Secciones</h2>
                 <li><a href="terror.html">Terror</a></li>
                 <li><a href="ciencia_ficcion.html">Ciencia Ficción</a></li>
@@ -28,46 +28,50 @@
         </ul>
     </div>
 
-    <div id="contenido">
-        <div id="contenido_primera_fila">
-            <div class="contenido_bloque">
-                <a href="terror.html">
-                    <h2>Terror</h2>
-                </a>
-                <img src="images/soy_leyenda.jpg" width="100" height="130">
-                <h4>Soy leyenda</h4>
-                <h5>Richard Matheson</h5>
+    <div class="contenido" id="contenido_registracion">
+        <form>
+            <h2>Formulario de registración</h2>
+            <div class="campo_form">    
+                <label for="nombre">Nombre: </label>
+                <input type="text" id="nombre" name="nombre" required><br>
             </div>
-            <div class="contenido_bloque">
-                <a href="ciencia_ficcion.html">
-                    <h2>Ciencia Ficción</h2>
-                </a>
-                <img src="images/metro_2033.jpg" width="100" height="130">
-                <h4>Metro 2033</h4>
-                <h5>Dmitry Glukhovsky</h5>
+            <div class="campo_form">   
+                <label for="apellido">Apellido: </label>
+                <input type="text" id="apellido" name="apellido" required><br>
             </div>
-        </div>
-        <div id="contenido_segunda_fila">
-            <div class="contenido_bloque">
-                <a href="novela_literaria.html">
-                    <h2>Novela Literaria</h2>
-                </a>
-                <img src="images/tiburon.jpg" width="100" height="130">
-                <h4>Tiburón</h4>
-                <h5>Peter Benchley</h5>
-                </div>
-            <div class="contenido_bloque">
-                <a href="segunda_guerra_mundial.html">
-                    <h2>Segunda Guerra Mundial</h2>
-                </a>
-                <img src="images/el_dia_d_de_churchill.jpg" width="100" height="130">
-                <h4>El día D de Churchill</h4>
-                <h5>Allen Packwood, Richard Dannatt</h5>
+            <div class="campo_form">
+                <label for="fecha_de_nacimiento">Fecha de nacimiento: </label>
+                <input type="date" id="fecha_de_nacimiento" name="fecha_de_nacimiento" required><br>
             </div>
-        </div>
-    </div>
+            <div class="campo_form">  
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="email" required><br>
+            </div>
+            <div class="campo_form">
+                <label for="contrasena">Contraseña: </label>
+                <input type="password" id="contrasena" name="contrasena" required><br>
+            </div>
+            <div class="campo_form">
+                <label>Sexo: </label>
+                <input type="radio" id="sexo_masculino" name="sexo" value="masculino"> Masculino
+                <input type="radio" id="sexo_femenino" name="sexo" value="femenino"> Femenino
+            </div>
+            <div class="campo_form">
+                <label for="temas_favoritos">Temas favoritos:</label>
+                <select id="temas_favoritos" name="temas_favoritos" multiple>
+                    <option>-- Elige un tema --</option>
+                    <option value="terror">Terror</option>
+                    <option value="ciencia_ficcion">Ciencia Ficción</option>
+                    <option value="segunda_guerra_mundial">Segunda guerra mundial</option>
+                    <option value="novela_literaria">Novela literaria</option>
+                </select><br>
+            </div>
+            <div class="campo_form">
+                <button type="submit">SUBMIT</button>
+            </div>
 
-  
+        </form>
+    </div>
 
     <div id="footer">
         <ul>
