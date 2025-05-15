@@ -1,0 +1,30 @@
+body{
+    text-align: center;
+}
+
+.visor{
+    height: 40px;
+    border: 2px solid black;
+    font-size: 20px;
+}
+
+#panel{
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#dpto{
+    grid-column: 3 / -1;
+}
+
+#mensaje{
+    border: 1px dotted #000;
+    display: inline;
+}
+button{
+    padding: 1em;
+    margin: .5em;
+}
