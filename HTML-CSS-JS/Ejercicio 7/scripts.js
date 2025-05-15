@@ -261,30 +261,20 @@ function llamar() {
 
 let input = "";
 
-let primera_fila = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-let segunda_fila = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
-let tercera_fila = ["a", "s", "d", "f", "g", "h", "j", "k", "l", "ñ"];
-let cuarta_fila = ["z", "x", "c", "v", "b", "n", "m"];
+let filas = [
+    ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+    ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
+    ["a", "s", "d", "f", "g", "h", "j", "k", "l", "ñ"],
+    ["z", "x", "c", "v", "b", "n", "m"]
+]
 
-function agregarCaracter(caracter){
-    if ( caracter >= 0 && caracter < 10){
-        input += primera_fila[caracter];
-    }
-    else if ( caracter >= 10 && caracter < 20){
-        input += segunda_fila[caracter - 10];
-    }
-    else if ( caracter >= 20 && caracter < 30){
-        input += tercera_fila[caracter - 20];
-    }
-    else if ( caracter >= 30 && caracter <= 36){
-        input += cuarta_fila[caracter - 30];
-    }
+function agregarCaracter(fila, caracter){
+    input += filas[fila][caracter];
     document.getElementById("visor").textContent = input;
 }
 
 function borrar() {
     input=input.substring(0, input.length -1)
-    document.getElementById("visor").textContent = input;
     document.getElementById("visor").textContent = input;
     return input;
 }

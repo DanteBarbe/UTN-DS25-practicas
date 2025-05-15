@@ -1,0 +1,12 @@
+#teclado{
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    gap: 10px;
+    justify-content: center;
+}
+
+#visor{
+  height: 3em;
+  font-size: 2em;
+  text-align: center;
+}
