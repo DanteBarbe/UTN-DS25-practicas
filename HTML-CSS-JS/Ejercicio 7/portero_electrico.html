@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portero Eléctrico</title>
+        <script src="scripts.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="visores">
+        <div class="visor" id="piso1"></div>
+        <div class="visor" id="piso2"></div>
+        <div class="visor" id="dpto"></div>
+    </div>
+    <div class="botones">
+        <button onclick="agregarNumero(1)">1</button>
+        <button onclick="agregarNumero(2)">2</button>
+        <button onclick="agregarNumero(3)">3</button>
+        <button onclick="agregarNumero(4)">4</button>
+        <button onclick="agregarNumero(5)">5</button>
+        <button onclick="agregarNumero(6)">6</button>
+        <button onclick="agregarNumero(7)">7</button>
+        <button onclick="agregarNumero(8)">8</button>
+        <button onclick="agregarNumero(9)">9</button>
+        <button onclick="agregarNumero(0)">0</button>
+    </div>
+    <div class="acciones">
+        <button onclick="llamar()">Llamar</button>
+        <button onclick="borrar()">Borrar</button>
+    </div>
+    <div id="mensaje">Llamando al piso NN, dpto NN</div>
+</body>
+</html>

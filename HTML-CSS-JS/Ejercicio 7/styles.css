@@ -1,0 +1,45 @@
+body{
+    text-align: center;
+}
+
+.visor{
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    border: 2px solid black;
+    margin: 5px;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+#piso{
+    font-size: 1.5em;
+}
+.botones{
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.acciones{
+    display: inline-block;
+}
+
+button{
+    padding: 1em;
+    margin: .5em;
+}
+
+.numero{
+    padding: 1em 2.2em;
+}
+
+div{
+    justify-content: space-between;
+}
+
+section{
+    margin: 1em;
+}

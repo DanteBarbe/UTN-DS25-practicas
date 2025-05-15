@@ -104,10 +104,10 @@ input{
 .contenido_bloque{
     background-color: #fff;
     width: 15em;
-    height: auto;
-    min-height: 15em;
+    height: 20em;
     text-align: center;
     margin: 2em 2em;
+    overflow-y: auto;
 }
 
 .contenido_bloque p{
