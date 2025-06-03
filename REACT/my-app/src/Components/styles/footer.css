@@ -1,0 +1,17 @@
+footer{
+    background-color: var(--primary-color);
+    grid-area: footer;
+}
+
+footer ul{
+    display: flex;
+    flex-direction: row;
+    padding: .7em;
+    justify-content: space-between;
+    margin: 0;
+}
+
+footer li{
+    list-style: none;
+    padding: .2em;
+}

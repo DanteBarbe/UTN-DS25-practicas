@@ -1,0 +1,22 @@
+header{
+    background-image: url("./background_image.png");
+    background-position: 1em 8em;
+    text-align: center;
+    grid-area: header;
+}
+header h1{
+    margin: 0;
+    padding: 1em;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.logo{
+    float: left;
+    width: 4em;
+    height: 4em;
+    border-radius: 4em;
+    top: 1em;
+    left: 1em;
+    position: relative;
+}
