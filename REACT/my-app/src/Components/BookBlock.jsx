@@ -1,7 +1,6 @@
 import './styles/bookblock.css'
 
 export const BookBlock = (props) => {
-  // Si el componente es usado desde HomeApp, se espera que props.fromHomeApp sea true
   return (
     <>
       <article>

@@ -4,6 +4,8 @@ import TerrorApp from './Apps/TerrorApp'
 import WWIIApp from './Apps/WWIIApp';
 import LiteraryApp from './Apps/LiteraryApp';
 import ScienceFictionApp from './Apps/ScienceFictionApp';
+import ContactApp from './Apps/ContactApp';
+import RegisterApp from './Apps/RegisterApp';
 
 
   function App() {
@@ -16,13 +18,11 @@ import ScienceFictionApp from './Apps/ScienceFictionApp';
         <Route path="/wwII" element={<WWIIApp />} />
         <Route path="/literary" element={<LiteraryApp />} />
         <Route path="/science-fiction" element={<ScienceFictionApp />} />
+        <Route path="/contact" element={<ContactApp />} />
+        <Route path="/register" element={<RegisterApp />} />*/
       </Routes>
     </Router>
     </>
   )
 }
-
-export default App;
-/*
-<Route path="/contact" element={<Contact />} />
-<Route path="/register" element={<Register />} />*/
+export default App
