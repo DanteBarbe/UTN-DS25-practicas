@@ -8,18 +8,8 @@ main{
 }
 
 .home-section{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
-    background-color: var(--primary-color);
-    margin: 1em 0em 1em 1em;
     grid-area: section;
 }
 .genre-section{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-    background-color: var(--primary-color);
-    margin: 1em 0em 1em 1em;
     grid-area: section;
 }

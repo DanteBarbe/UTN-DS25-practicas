@@ -1,0 +1,33 @@
+div.col {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 1em 0;
+}
+
+.g-4.row.row-cols-md-3.row-cols-1{
+    grid-area: section;
+    background-color: var(--primary-color);
+    margin: 1em 0em 1em 1em;
+}
+
+.g-4.row.row-cols-md-2.row-cols-1{
+    grid-area: section;
+    background-color: var(--primary-color);
+    margin: 1em 0em 1em 1em;
+}
+
+div.card{
+    margin: 0.5rem;
+    box-shadow: 0 0 0.125rem rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+p.card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.2s;
+}

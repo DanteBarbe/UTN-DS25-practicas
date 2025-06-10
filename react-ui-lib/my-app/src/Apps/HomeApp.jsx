@@ -1,8 +1,32 @@
 import '../App.css'
 import { Header } from '../Components/Header'
 import { Menu } from '../Components/Menu'
-import { BookBlock } from '../Components/BookBlock'
 import { Footer } from '../Components/Footer'
+import GridExample from '../Components/GridExample';
+
+
+const books = [  
+  { 
+    genre: "Terror", 
+    image: "/terror/soy_leyenda.jpg", 
+    title: "Soy leyenda", 
+    author: "Richard Matheson" },
+  
+    { genre: "Ciencia Ficción", 
+    image: "/science_fiction/metro_2033.jpg", 
+    title: "Metro 2033", 
+    author: "Dmitry Glukhovsky" },
+  
+    { genre: "Novela Literaria", 
+    image: "/literary/cien_años_de_soledad.jpg", 
+    title: "Cien años de soledad", 
+    author: "Gabriel García Marquez" },
+  
+    { genre: "Segunda Guerra Mundial", 
+    image: "/wwII/el_dia_d_de_churchill.jpg", 
+    title: "El día D de Churchill", 
+    author: "Allen Packwood, Richard Dannatt" }
+];
 
   function HomeApp() {
     const handleBookClick = (genre) => {
@@ -30,16 +54,7 @@ import { Footer } from '../Components/Footer'
         <main>
           <Menu/>
           <section className='home-section'>
-            {[
-              { genre: "Terror", image: "/terror/soy_leyenda.jpg", title: "Soy leyenda", author: "Richard Matheson" },
-              { genre: "Ciencia Ficción", image: "/science_fiction/metro_2033.jpg", title: "Metro 2033", author: "Dmitry Glukhovsky" },
-              { genre: "Novela Literaria", image: "/literary/cien_años_de_soledad.jpg", title: "Cien años de soledad", author: "Gabriel García Marquez" },
-              { genre: "Segunda Guerra Mundial", image: "/wwII/el_dia_d_de_churchill.jpg", title: "El día D de Churchill", author: "Allen Packwood, Richard Dannatt" }
-            ].map((book, index) => (
-              <div key={index} onClick={() => handleBookClick(book.genre)} style={{ cursor: 'pointer' }}>
-                <BookBlock {...book} />
-              </div>
-            ))}
+            <GridExample handleBookClick={handleBookClick} books={books} md={2}/>
           </section>
         </main>
         <Footer/>

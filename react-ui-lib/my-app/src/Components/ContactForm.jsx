@@ -4,25 +4,23 @@ import './styles/contactform.css'
 
 function ContactForm() {
   return (
-    <>
-      <FloatingLabel controlId="floatingName" label="Nombre">
+    <Form>
+      <FloatingLabel controlId="floatingName" label="Nombre" className="mb-3">
         <Form.Control type="text" placeholder="Nombre" />
       </FloatingLabel>
-      <FloatingLabel controlId="floatingLastName" label="Apellido">
-        <Form.Control type="text" placeholder="Apelldo" />
+      <FloatingLabel controlId="floatingLastName" label="Apellido" className="mb-3">
+        <Form.Control type="text" placeholder="Apellido" />
       </FloatingLabel>
-      <FloatingLabel
-        controlId="floatingInput"
-        label="Correo electrónico"
-        className="mb-3"
-      >
+      <FloatingLabel controlId="floatingInput" label="Correo electrónico" className="mb-3">
         <Form.Control type="email" placeholder="nombre@example.com" />
       </FloatingLabel>
-      <FloatingLabel className="mb-3" controlId="exampleForm.ControlTextarea1">
-        <Form.Label>Mensaje:</Form.Label>
-        <Form.Control as="textarea" rows={3} />
+      <FloatingLabel controlId="floatingTextarea" label="Mensaje" className="mb-3">
+        <Form.Control
+          as="textarea"
+          placeholder="Escribe tu mensaje aquí"
+        />
       </FloatingLabel>
-    </>
+    </Form>
   );
 }
 
