@@ -1,0 +1,19 @@
+main{
+    display: grid;
+    grid-template-columns: .7fr 2fr 2fr;
+    grid-template-areas:"header header header"
+                        "menu section section"
+                        ". section section"
+                        "footer footer footer";
+                    }
+                    
+.register-form-section{
+    grid-area: section;
+    background-color: var(--primary-color);
+    margin: 1em 0 1em 1em;
+}
+
+.register-form-section h2{
+    text-align: center;
+    font-size: 2em;
+}

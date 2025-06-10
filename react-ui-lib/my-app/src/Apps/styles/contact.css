@@ -1,0 +1,46 @@
+main{
+    display: grid;
+    grid-template-columns: .7fr 2fr 2fr;
+    grid-template-areas:"header header header"
+    "menu section section"
+    ". section section"
+    "footer footer footer";
+}
+
+.contact-form-section{
+    float: right;
+    justify-content: space-between;
+    background-color: #ddd;
+    width: 83vw;
+    min-height: 70vh;
+    height: auto;
+    grid-area: section;
+    background-color: var(--primary-color);
+    margin: 1em 0 1em 1em;
+}
+
+#campo_form_email input{
+    width: 30em;
+}
+
+.form-field{
+    margin: 1em 4em;
+    font-size: 1.5em;
+}
+
+button{
+    padding: 1.5em 4em;
+    border-radius: 1em;
+    display: block;
+    margin: 0 auto;
+}
+
+input{
+    min-width: 20em;
+    width: auto;
+    height: 2em;
+}
+.contact-form-section h2{
+    text-align: center;
+    font-size: 2em;
+}

@@ -1,0 +1,14 @@
+input[type="radio"] {
+  appearance: auto; /* restaurar estilo predeterminado */
+}
+
+.form-check{
+    display: flex;
+    padding: 0;
+}
+
+.mb-3{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
