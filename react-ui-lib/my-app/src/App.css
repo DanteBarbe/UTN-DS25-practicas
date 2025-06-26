@@ -1,1 +1,9 @@
 @import url("index.css");
+
+.utilities{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+}

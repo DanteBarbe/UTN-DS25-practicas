@@ -1,7 +1,5 @@
 import './styles/register.css'
-import { Header } from '../Components/Header'
-import { Menu } from '../Components/Menu'
-import { Footer } from '../Components/Footer'
+import Layout from '../Components/Layout'
 import RegisterForm from '../Components/RegisterForm'
 import FormFloatingSelectExample from '../Components/FormFloatingSelectExample'
 import HorizontalExample from '../Components/HorizontalExample'
@@ -11,9 +9,7 @@ import CustomButtonComponent from '../Components/CustomButtonComponent'
 export const RegisterApp = () => {
   return (
     <>
-    <Header/>
-    <main>
-    <Menu/>
+    <Layout>
     <section className='register-form-section'>
         <h2>Formulario de registración</h2>
         <RegisterForm />
@@ -21,8 +17,7 @@ export const RegisterApp = () => {
         <FormFloatingSelectExample />
         <CustomButtonComponent />
     </section>
-    </main>
-    <Footer/>
+    </Layout>
     </>
   )
 }
