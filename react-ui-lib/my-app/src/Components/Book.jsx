@@ -2,16 +2,14 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './styles/gridexample.css';
-import {booksData} from '../Apps/HomeApp';
 
-
-function Book({books, genre, md = 3 }) {
-
+function Book({ books = [], genre, md = 3 }) {
   let librosFiltrados = [];
-  if (books && books.length > 0) {
+
+  if (books.length > 0) {
     librosFiltrados = books;
   } else if (genre) {
-    librosFiltrados = booksData.filter(book => book.genre === genre);
+    librosFiltrados = [];
   }
 
   return (
