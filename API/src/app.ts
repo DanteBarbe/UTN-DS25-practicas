@@ -8,8 +8,8 @@ const PORT = 3000;
 app.use(express.json());
 app.use(logRequest);
 
-app.use('/api/books', bookRoutes);
-// Error handler (siempre al final)
+app.use('/books', bookRoutes);
+
 app.use(handleError);
 app.listen(PORT, () => {
  console.log(` Servidor corriendo en el puerto ${PORT}`);
