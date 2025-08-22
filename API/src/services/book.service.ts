@@ -1,6 +1,83 @@
-import { Book, CreateBookRequest, UpdateBookRequest } from
+import prisma from '../config/prisma';
+import { Book } from '../generated/prisma';
+import { CreateBookRequest, UpdateBookRequest } from
 '../types/book.types';
-let books: Book[] = [
+
+export async function getAllBooks(): Promise<Book[]> {
+ const books = await prisma.book.findMany({
+ orderBy: { id: 'asc' },
+ });
+ return books;
+}
+
+export async function getBookById(id: number): Promise<Book> {
+ const book = await prisma.book.findUnique({ where: { id } });
+ if (!book) {
+ const error = new Error('Book not found.');
+ (error as any).statusCode = 404;
+ throw error;
+ }
+ return book;
+}
+
+export async function removeBookById(id: number): Promise<Book> {
+  try {
+    const book = await prisma.book.delete({ where: { id } });
+    return book;
+  } catch (e: any) {
+    if (e.code === 'P2025') {
+      const error = new Error('Book not found.');
+      (error as any).statusCode = 404;
+      throw error;
+    }
+    throw e;
+  }
+}
+  
+
+export async function createBook(data: CreateBookRequest):
+Promise<Book> {
+
+const created = await prisma.book.create({
+ data: {
+ title: data.title,
+ author: data.author,
+ description: data.description || undefined,
+ genre: data.genre,
+ image: data.image || undefined,
+ createdAt: new Date(),
+ },
+ });
+ return created;
+}
+
+export async function updateBook(id: number, updateData:
+UpdateBookRequest): Promise<Book> {
+ try {
+ const updated = await prisma.book.update({
+ where: { id },
+ data: {
+...(updateData.title !== undefined ? { title: updateData.title } : {}),
+...(updateData.author !== undefined ? { author: updateData.author } : {}),
+...(updateData.description !== undefined ? { description: updateData.description } : {}),
+...(updateData.genre !== undefined ? { genre: updateData.genre } : {}),
+...(updateData.image !== undefined ? { image: updateData.image } : {}),
+ },
+ });
+ return updated;
+ } catch (e: any) {
+ if (e.code === 'P2025') {
+ const error = new Error('Book not found.');
+ (error as any).statusCode = 404;
+ throw error;
+ }
+ throw e;
+ }
+}
+
+
+
+/*let books: Book[] = [
     {
       id: 1,
       image: "/literary/cien_años_de_soledad.jpg",
@@ -194,50 +271,4 @@ let books: Book[] = [
       genre: "wwii"
     }
   ]
-export async function getAllBooks(): Promise<Book[]> {
- return books;
-}
-
-export async function getBookById(id: number): Promise<Book> {
- const book = books.find(b => b.id === id);
- if (!book) {
- const error = new Error('Libro no encontrado');
- (error as any).statusCode = 404;
- throw error;
- }
- return book;
-}
-
-export async function removeBookById(id: number): Promise<Book> {
- const book = books.find(b => b.id === id);
- if (!book) {
- const error = new Error('Libro no encontrado');
- (error as any).statusCode = 404;
- throw error;
- }
- books = books.filter(b => b.id !== id);
- return book;
-}
-
-export async function createBook(bookData: CreateBookRequest):
-Promise<Book> {
-
-const newBook: Book = {
- id: Math.max(...books.map(b => b.id)) + 1,
- ...bookData,
- };
-books.push(newBook);
-return newBook;
-}
-
-export async function updateBook(id: number, updateData:
-UpdateBookRequest): Promise<Book> {
-const bookIndex = books.findIndex(b => b.id === id);
-if (bookIndex === -1) {
- const error = new Error('Libro no encontrado');
- (error as any).statusCode = 404;
- throw error;
- }
-books[bookIndex] = { ...books[bookIndex], ...updateData };
-return books[bookIndex];
-}
+*/

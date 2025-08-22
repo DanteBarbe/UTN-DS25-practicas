@@ -1,11 +1,13 @@
 export interface Book {
  id: number;
- image?: string;
+ image: string | null;
  title: string;
  author: string;
- description?: string;
+ description: string | null;
  genre: string;
+ createdAt: Date;
 }
+
 export interface CreateBookRequest {
  title: string;
  image?: string;
@@ -13,6 +15,7 @@ export interface CreateBookRequest {
  description?: string;
  genre: string;
 }
+
 export interface UpdateBookRequest {
  image?: string;
  title?: string;
@@ -20,6 +23,7 @@ export interface UpdateBookRequest {
  description?: string;
  genre?: string;
 }
+
 export interface BookResponse {
  book: Book;
  message: string;
