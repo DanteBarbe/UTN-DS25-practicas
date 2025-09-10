@@ -22,13 +22,5 @@ export interface UpdateBookRequest {
  author?: string;
  description?: string;
  genre?: string;
-}
-
-export interface BookResponse {
- book: Book;
- message: string;
-}
-export interface BooksListResponse {
- books: Book[];
- total: number;
+ authorId?: number
 }
