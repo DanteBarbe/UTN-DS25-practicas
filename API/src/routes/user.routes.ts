@@ -12,7 +12,7 @@ router.get('/:id', authenticate, authorize('ADMIN'), userController.getUserById
 );
 router.post('/', authenticate, authorize('ADMIN'), validate(createUserSchema), userController.createUser
 );
-router.put('/:id', authenticate, authorize('ADMIN'), validate(updateUserSchema), userController.updateUser
+router.put('/:id', authenticate, validate(updateUserSchema), userController.updateUser
 );
 router.delete('/:id', authenticate, authorize('ADMIN'), userController.removeUserById
 );

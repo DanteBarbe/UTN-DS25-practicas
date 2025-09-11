@@ -1,17 +1,18 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import {Header} from './Header';
-import {Menu} from './Menu';
-import {Footer} from './Footer';
+import { Header } from './Header';
+import { Menu } from './Menu';
+import { Footer } from './Footer';
+import { Outlet } from 'react-router-dom';
 
-function Layout({ children }) {
+function Layout() {
   return (
     <Container fluid>
       <Row>
-          <div className="layout-header">
-            <Header />
-          </div>
+        <div className="layout-header">
+          <Header />
+        </div>
       </Row>
       <Row>
         <Col xs={12} md={2}>
@@ -21,14 +22,14 @@ function Layout({ children }) {
         </Col>
         <Col xs={12} md={10}>
           <div className="layout-content">
-            {children}
+            <Outlet />
           </div>
         </Col>
       </Row>
       <Row>
-          <div className="layout-footer">
-            <Footer />
-          </div>
+        <div className="layout-footer">
+          <Footer />
+        </div>
       </Row>
     </Container>
   );

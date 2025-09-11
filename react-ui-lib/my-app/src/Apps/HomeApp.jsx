@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 
 function HomeApp() {
 
-const { data, isLoading, error } = useFetch("/books", SERVER_URL);
+const { data, isLoading, error } = useFetch(SERVER_URL + "/books");
 const [books, setBooks] = useState([]);
 const [search , setSearch ] = useState ("");
 

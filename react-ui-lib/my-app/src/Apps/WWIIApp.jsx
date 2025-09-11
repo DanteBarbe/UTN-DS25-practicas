@@ -5,7 +5,7 @@ import { useFetch } from '../Hooks/useFetch';
 import { SERVER_URL } from '../Constants';
 
 export const WWIIApp = () => {
-  const { data, isLoading, error } = useFetch("/books", SERVER_URL);
+  const { data, isLoading, error } = useFetch(SERVER_URL + "/books");
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
