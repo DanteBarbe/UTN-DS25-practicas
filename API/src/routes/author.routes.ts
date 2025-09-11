@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import * as authorController from '../controllers/author.controller';
 import { validate } from '../middlewares/validation.middleware'
-import { createAuthorSchema, updateAuthorSchema } from '../middlewares/author.middleware';
+import { createAuthorSchema, updateAuthorSchema } from '../validations/author.validation';
 const router = Router();
 
 router.get('/', authorController.getAllAuthors);
