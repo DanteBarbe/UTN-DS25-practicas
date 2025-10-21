@@ -1,27 +1,65 @@
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Form from 'react-bootstrap/Form';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { contactSchema } from '../Validations/contactSchema';
 import './styles/contactform.css'
 
 function ContactForm() {
-  return (
-    <Form>
-      <FloatingLabel controlId="floatingName" label="Nombre" className="mb-3">
-        <Form.Control type="text" placeholder="Nombre" />
-      </FloatingLabel>
-      <FloatingLabel controlId="floatingLastName" label="Apellido" className="mb-3">
-        <Form.Control type="text" placeholder="Apellido" />
-      </FloatingLabel>
-      <FloatingLabel controlId="floatingInput" label="Correo electrónico" className="mb-3">
-        <Form.Control type="email" placeholder="nombre@example.com" />
-      </FloatingLabel>
-      <FloatingLabel controlId="floatingTextarea" label="Mensaje" className="mb-3">
-        <Form.Control
-          as="textarea"
-          placeholder="Escribe tu mensaje aquí"
-        />
-      </FloatingLabel>
-    </Form>
-  );
-}
 
+  const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm({ resolver: yupResolver(contactSchema)});
+
+  const onSubmit = (data) => {
+    alert(`Mensaje enviado por ${data.name}`);
+    reset();
+  }
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
+      <div className="form-group">
+        <input
+        {...register("name")}
+        type="text"
+        placeholder="Tu nombre"
+        className={errors.name ? "input-error" : ""}
+        />
+        {errors.name && <span
+        className="field-error">{errors.name.message}</span>}
+      </div>
+      <div className="form-group">
+        <input
+        {...register("lastname")}
+        type="text"
+        placeholder="Tu apellido"
+        className={errors.lastName ? "input-error" : ""}
+        />
+        {errors.lastName && <span
+        className="field-error">{errors.lastName.message}</span>}
+      </div>
+      <div className="form-group">
+        <input
+        {...register("email")}
+        type="email"
+        placeholder="Tu email"
+        className={errors.email ? "input-error" : ""}
+        />
+        {errors.email && <span
+        className="field-error">{errors.email.message}</span>}
+      </div>
+      <div className="form-group">
+        <textarea
+        {...register("message")}
+        placeholder="Tu mensaje"
+        rows="5"
+        className={errors.message ? "input-error" : ""}
+        />
+        {errors.message && (
+        <span className="field-error">{errors.message.message}</span>
+        )}
+      </div>
+      <div>
+        <button type="submit" disabled={isSubmitting}>
+        {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
+        </button>
+      </div>
+    </form>
+  )
+}
 export default ContactForm;

@@ -9,7 +9,7 @@ export const RegisterApp = () => {
   return (
     <>
     <section className='register-form-section'>
-        <h2>Formulario de registración</h2>
+        <h2>Formulario de registro</h2>
         <RegisterForm />
         <HorizontalExample />
         <FormFloatingSelectExample />

@@ -1,59 +1,61 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom" ;
-import { setToken } from "../Helpers/auth" ;
+import { yupResolver } from '@hookform/resolvers/yup';
+import { loginSchema } from "../Validations/loginSchema";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/login.css'
+import { useForm } from "react-hook-form";
+import { useAuth } from "../Contexts/AuthContext";
 
 export default function Login () {
- const API_URL = import.meta.env.VITE_API_URL
+
  const navigate = useNavigate ();
- const [email, setEmail ] = useState ("");
- const [password , setPassword ] = useState ("");
- async function handleSubmit (e) {
- e.preventDefault ();
- try {
- const res = await fetch(`${API_URL}/auth/login` , {
- method: "POST",
- headers: { "Content-Type" : "application/json" },
- body: JSON.stringify ({ email, password })
- });
- if (!res.ok) throw new Error("Error en login" );
- const { data } = await res.json();
- setToken(data.token);
- navigate ("/home" );
- } catch (err) {
- alert("Login fallido" );
+ const { login } = useAuth();
+ const [serverError, setServerError] = useState('');
+
+ const { register, handleSubmit, formState: { errors, isSubmitting },
+setError } = useForm({
+    resolver: yupResolver(loginSchema)
+});
+
+ async function onSubmit (data) {
+    setServerError('');
+
+    const result = await login(data.email, data.password);
+
+    if (result.success) {
+        navigate('/');
+    } else {
+        setServerError(result.error);
+    }
  }
- }
+
  return (
     <div className="login-container">
-        <form onSubmit={handleSubmit} className="login-form">
+        <form onSubmit={handleSubmit(onSubmit)} className="login-form">
         <h2 className="mb-4 text-center">Login</h2>
 
         <div className="mb-3">
             <input
-            type="email"
-            className="form-control"
-            placeholder="Email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
+             {...register('email')}
+             placeholder="Email"
+             className={errors.email ? 'input-error' : 'form-control'}
             />
+            {errors.email && <span className="field-error"> {errors.email.message}</span>}
         </div>
 
         <div className="mb-3">
             <input
-            type="password"
-            className="form-control"
-            placeholder="Password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            required
+             {...register('password')}
+             type="password"
+             placeholder="Contraseña"
+             className={errors.password ? 'input-error' : 'form.control'}
             />
+            {errors.password && <span className="field-error">{errors.password.message}</span>}
         </div>
 
-        <button type="submit" className="btn btn-primary w-100">
-            Ingresar
+        <button type="submit" className="btn btn-primary w-100" disabled={isSubmitting}>
+            {isSubmitting ? 'Ingresando...' : 'Ingresar'}
         </button>
         </form>
     </div>

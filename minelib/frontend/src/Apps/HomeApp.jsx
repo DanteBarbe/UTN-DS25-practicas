@@ -5,11 +5,13 @@ import { useEffect } from 'react';
 import Book from '../Components/Book';
 import AddBookButton from '../Components/AddBookButton';
 import '../App.css';
+import { useAuth } from '../Contexts/AuthContext';
 
 function HomeApp() {
 
 const API_URL = import.meta.env.VITE_API_URL
 const { data, isLoading, error } = useFetch(`${API_URL}/books`);
+const { isAdmin } = useAuth();
 const [books, setBooks] = useState([]);
 const [search , setSearch ] = useState ("");
 
@@ -66,7 +68,9 @@ return (
       <section className="home-section" style={{backgroundColor:'var(--primary-color)'}}>
       <div className='utilities'>
         <SearchBar search={search} onSetSearch={setSearch}/>
-        <AddBookButton books={books} addBook={addBook}/>
+        {isAdmin && (
+          <AddBookButton books={books} addBook={addBook}/>
+        )}
       </div>
 
       {filteredBooks.length === 0 ? (
