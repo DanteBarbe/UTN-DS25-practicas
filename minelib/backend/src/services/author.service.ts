@@ -1,15 +1,24 @@
 import prisma from '../config/prisma';
-import { Author } from '../types/author.types';
+import { Author, CreateAuthorRequest, UpdateAuthorRequest } from '../types/author.types';
 
 export async function getAllAuthors(): Promise<Author[]> {
- const authors = await prisma.author.findMany({
-  orderBy: { id: 'asc' },
- });
- return authors;
+  const authors = await prisma.author.findMany({
+    orderBy: { id: 'asc' },
+    include: {
+      books: true,
+    },
+  });
+  return authors;
 }
 
 export async function getAuthorById(id: number): Promise<Author> {
-  const author = await prisma.author.findUnique({ where: { id } });
+  const author = await prisma.author.findUnique({
+    where: { id },
+    include: {
+      books: true,
+    },
+  });
+  
   if (!author) {
     const error = new Error('Author not found.');
     (error as any).statusCode = 404;
@@ -18,8 +27,15 @@ export async function getAuthorById(id: number): Promise<Author> {
   return author;
 }
 
-export async function createAuthor(data: { name: string; lastname: string; }): Promise<Author> {
-    return prisma.author.create({ data });
+export async function createAuthor(data: CreateAuthorRequest): Promise<Author> {
+  const { name, lastname } = data;
+  
+  return prisma.author.create({
+    data: { name, lastname },
+    include: {
+      books: true,
+    },
+  });
 }
 
 export async function removeAuthorById(id: number): Promise<void> {
@@ -34,12 +50,18 @@ export async function removeAuthorById(id: number): Promise<void> {
     throw e;
   }
 }
-  
-export async function updateAuthor(id: number, data: Partial<Author>): Promise<Author> {
+
+export async function updateAuthor(id: number, data: UpdateAuthorRequest): Promise<Author> {
   try {
-    return await prisma.author.update ({ where: { id }, data });
-  } catch (e: any){
-    if (e.code === 'P2025'){
+    return await prisma.author.update({
+      where: { id },
+      data,
+      include: {
+        books: true,
+      },
+    });
+  } catch (e: any) {
+    if (e.code === 'P2025') {
       const error = new Error('Autor no encontrado') as any;
       error.statusCode = 404;
       throw error;
