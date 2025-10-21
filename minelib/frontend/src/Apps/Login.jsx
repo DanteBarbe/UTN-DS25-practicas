@@ -5,13 +5,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/login.css'
 
 export default function Login () {
+ const API_URL = import.meta.env.VITE_API_URL
  const navigate = useNavigate ();
  const [email, setEmail ] = useState ("");
  const [password , setPassword ] = useState ("");
  async function handleSubmit (e) {
  e.preventDefault ();
  try {
- const res = await fetch("http://localhost:3000/auth/login" , {
+ const res = await fetch(`${API_URL}/auth/login` , {
  method: "POST",
  headers: { "Content-Type" : "application/json" },
  body: JSON.stringify ({ email, password })
@@ -25,35 +26,36 @@ export default function Login () {
  }
  }
  return (
-    <form onSubmit={handleSubmit} className="p-4 rounded shadow bg-light" style={{ maxWidth: '400px', margin: '3rem auto' }}>
-    <h2 className="mb-4 text-center">Login</h2>
+    <div className="login-container">
+        <form onSubmit={handleSubmit} className="login-form">
+        <h2 className="mb-4 text-center">Login</h2>
 
-    <div className="mb-3">
-        <input
-        type="email"
-        className="form-control"
-        placeholder="Email"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-        required
-        />
+        <div className="mb-3">
+            <input
+            type="email"
+            className="form-control"
+            placeholder="Email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
+            />
+        </div>
+
+        <div className="mb-3">
+            <input
+            type="password"
+            className="form-control"
+            placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required
+            />
+        </div>
+
+        <button type="submit" className="btn btn-primary w-100">
+            Ingresar
+        </button>
+        </form>
     </div>
-
-    <div className="mb-3">
-        <input
-        type="password"
-        className="form-control"
-        placeholder="Password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-        required
-        />
-    </div>
-
-    <button type="submit" className="btn btn-primary w-100">
-        Ingresar
-    </button>
-    </form>
-
  );
 }

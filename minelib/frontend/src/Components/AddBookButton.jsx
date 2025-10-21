@@ -7,6 +7,7 @@ import { SERVER_URL } from '../Constants';
 
 function AddBookButton({ addBook, books }) {
   const [show, setShow] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -66,7 +67,7 @@ function AddBookButton({ addBook, books }) {
     id: getNextId()
   };
     try {
-      const response = await fetch(SERVER_URL + '/books', {
+      const response = await fetch(`${API_URL}/books`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

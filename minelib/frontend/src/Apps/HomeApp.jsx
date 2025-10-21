@@ -1,21 +1,21 @@
 import {SearchBar} from '../Components/SearchBar';
-import '../App.css';
-import Book from '../Components/Book';
 import { useState } from 'react';
-import AddBookButton from '../Components/AddBookButton';
-import {useFetch} from '../Hooks/useFetch';
-import {SERVER_URL} from '../Constants';
+import { useFetch } from '../Hooks/useFetch';
 import { useEffect } from 'react';
+import Book from '../Components/Book';
+import AddBookButton from '../Components/AddBookButton';
+import '../App.css';
 
 function HomeApp() {
 
-const { data, isLoading, error } = useFetch(SERVER_URL + "/books");
+const API_URL = import.meta.env.VITE_API_URL
+const { data, isLoading, error } = useFetch(`${API_URL}/books`);
 const [books, setBooks] = useState([]);
 const [search , setSearch ] = useState ("");
 
 useEffect(() => {
 if (data) {
-  setBooks(data);
+  setBooks(data.data);
 }
 }, [data]);
 
@@ -24,7 +24,7 @@ if (error) return <p>Error: {error.message}</p>;
 
 const addBook = async (newBook) => {
   try {
-    const response = await fetch(SERVER_URL + "/books", {
+    const response = await fetch(`${API_URL}/books`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

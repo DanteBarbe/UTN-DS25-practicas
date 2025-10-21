@@ -24,7 +24,9 @@ function Book({ books = [], genre, md = 3 }) {
             />
             <Card.Body>
               <Card.Title>{book.title}</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{book.author}</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">{book.author 
+                  ? `${book.author.name} ${book.author.lastname}` 
+                  : 'Autor desconocido'}</Card.Subtitle>
               {book.description && <Card.Text>{book.description}</Card.Text>}
             </Card.Body>
           </Card>

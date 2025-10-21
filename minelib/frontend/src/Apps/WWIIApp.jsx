@@ -2,15 +2,15 @@ import './styles/styles.css'
 import Book from '../Components/Book';
 import { useState, useEffect } from 'react';
 import { useFetch } from '../Hooks/useFetch';
-import { SERVER_URL } from '../Constants';
 
 export const WWIIApp = () => {
-  const { data, isLoading, error } = useFetch(SERVER_URL + "/books");
+  const API_URL = import.meta.env.VITE_API_URL
+  const { data, isLoading, error } = useFetch(`${API_URL}/books`);
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    if (Array.isArray(data)) {
-      setBooks(data);
+    if (data && data.data) {
+      setBooks(data.data);
     }
   }, [data]);
 

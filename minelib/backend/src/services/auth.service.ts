@@ -31,6 +31,7 @@ export async function login(data: LoginRequest ): Promise<LoginResponse['data']>
  const tokenPayload = {
     id: user.id,
     email: user.email,
+    role: user.role,
  }
 
  const signOptions: jwt.SignOptions = {
