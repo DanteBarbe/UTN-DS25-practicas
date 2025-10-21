@@ -5,9 +5,9 @@ import { authenticate, authorize } from '../middlewares/auth.middleware';
 import { createBookSchema, updateBookSchema } from '../validations/book.validation';
 const router = Router();
 
-router.get('/', authenticate, authorize('ADMIN', 'USER'), bookController.getAllBooks);
+router.get('/', bookController.getAllBooks);
 
-router.get('/:id', authenticate, authorize('ADMIN', 'USER'),bookController.getBookById);
+router.get('/:id', bookController.getBookById);
 
 router.post('/', authenticate, authorize('ADMIN', 'USER'), validate(createBookSchema),bookController.createBook);
 

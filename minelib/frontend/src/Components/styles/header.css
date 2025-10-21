@@ -1,12 +1,16 @@
-header{
-    background-image: url("./background_image.png");
-    background-position: 1em 8em;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+header {
+  background-image: url("/background_image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #464646;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
+
 header h1{
     margin: 0;
     padding: 1em;
