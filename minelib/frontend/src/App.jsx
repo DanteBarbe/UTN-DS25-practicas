@@ -7,7 +7,7 @@ import ScienceFictionApp from './Apps/ScienceFictionApp';
 import ContactApp from './Apps/ContactApp';
 import RegisterApp from './Apps/RegisterApp';
 import Layout from './Components/Layout';
-import Login from './Apps/login';
+import Login from './Apps/Login';
 
 
   function App() {
