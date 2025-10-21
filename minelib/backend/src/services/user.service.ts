@@ -1,5 +1,5 @@
 import prisma from '../config/prisma';
-import { User } from '../generated/prisma';
+import { User } from '../types/user.types';
 import bcrypt from 'bcrypt';
 import { CreateUserRequest, UpdateUserRequest, UserData } from '../types/user.types';
 

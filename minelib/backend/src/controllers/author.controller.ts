@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import {Author} from '../generated/prisma';
 import * as authorService from '../services/author.service';
 
 export async function getAllAuthors(req: Request, res:

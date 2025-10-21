@@ -1,4 +1,5 @@
-import { Book } from '../generated/prisma'
+import { Book } from './book.types'
+
 export interface Author {
  id: number;
  name: string;

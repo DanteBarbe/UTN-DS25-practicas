@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import {Book} from '../generated/prisma';
 import * as bookService from '../services/book.service';
 
 export async function getAllBooks(req: Request, res:
