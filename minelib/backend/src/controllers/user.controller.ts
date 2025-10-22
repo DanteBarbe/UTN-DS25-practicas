@@ -2,12 +2,13 @@ import { Request, Response, NextFunction } from 'express';
 import { UserData } from '../types/user.types';
 import * as userService from '../services/user.service';
 
-export async function getAllUsers(req: Request, res: Response<UserData[]>, next: NextFunction) {
+export async function getAllUsers(req: Request, res: Response, next: NextFunction) {
  try {
  const users = await userService.getAllUsers();
- res.json(users);
+ res.json({ success: true, data: users });
  } catch (error) { next(error); }
 }
+
 export async function getUserById(req: Request<{ id: string }>, res: Response<UserData>, next:
 NextFunction) {
  try {
